@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เกมหาของ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .game-container {
+            width: 600px;
+            height: 400px;
+            border: 2px solid #333;
+            position: relative;
+            background-color: #fff;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .item {
+            width: 50px;
+            height: 50px;
+            background-color: gold;
+            position: absolute;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .message {
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            visibility: hidden;
+        }
+
+        .found {
+            background-color: #4caf50;
+        }
+
+        .not-found {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game-container" id="gameContainer">
+        <div class="message" id="message">คลิกเพื่อหาของ!</div>
+        <div class="item" id="hiddenItem"></div>
+    </div>
+
+    <script>
+        const gameContainer = document.getElementById('gameContainer');
+        const hiddenItem = document.getElementById('hiddenItem');
+        const message = document.getElementById('message');
+
+        let itemPosition = {};
+        let found = false;
+
+        // ฟังก์ชันที่จะสุ่มตำแหน่งของไอเทม
+        function randomizeItemPosition() {
+            const containerWidth = gameContainer.offsetWidth;
+            const containerHeight = gameContainer.offsetHeight;
+
+            const x = Math.random() * (containerWidth - 50); // ลดขนาดของ item
+            const y = Math.random() * (containerHeight - 50);
+
+            itemPosition = { x, y };
+            hiddenItem.style.left = `${x}px`;
+            hiddenItem.style.top = `${y}px`;
+        }
+
+        // เมื่อคลิกที่พื้นที่เกม
+        gameContainer.addEventListener('click', function (event) {
+            if (found) {
+                return; // ถ้าหาของเจอแล้วไม่ให้คลิกต่อ
+            }
+
+            // ตรวจสอบว่าคลิกโดนไอเทมหรือไม่
+            const clickX = event.clientX - gameContainer.offsetLeft;
+            const clickY = event.clientY - gameContainer.offsetTop;
+
+            const distanceX = Math.abs(clickX - itemPosition.x);
+            const distanceY = Math.abs(clickY - itemPosition.y);
+
+            if (distanceX < 50 && distanceY < 50) {
+                // หากคลิกโดนไอเทม
+                hiddenItem.classList.add('found');
+                message.textContent = "คุณหาของเจอแล้ว!";
+                message.style.visibility = 'visible';
+                found = true;
+            } else {
+                // หากคลิกผิด
+                message.textContent = "ไม่ใช่! ลองใหม่!";
+                message.style.visibility = 'visible';
+            }
+        });
+
+        // เริ่มต้นเกมและสุ่มตำแหน่งของไอเทม
+        randomizeItemPosition();
+    </script>
+
+</body>
+</html>
+
