@@ -1,0 +1,158 @@
+*{
+    /*การกำหนด fron*/
+    font-family: Arial, Helvetica, sans-serif;
+
+    /* การกำหนด link style*/
+    text-decoration: none;
+
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+.container{
+    max-width: 1140px;
+    margin: 0 auto;
+
+}
+
+nav{
+    background-color: rgb(113, 129, 143);
+    overflow: hidden;
+
+}
+.nav-con{
+    display: flex;
+   justify-content: space-between;
+   list-style: none;
+   margin-left: 10px;
+   padding: 14px 16px;
+}
+
+.menu{
+    display: flex;
+    overflow: hidden;
+}
+.menu li{
+    float: left;
+    color: rgb(24, 29, 29);
+    list-style: none;
+    margin-left: 25px;
+    padding: 14px 16px;
+}
+
+.menu a:hover{
+    background-color: rgb(231, 201, 162);
+
+}
+
+.menu :active{
+    background-color: rgb(170, 15, 184);
+    text-decoration: none;
+}
+a{
+    color: rgba(38, 41, 38, 0.733);
+}
+
+.logo{
+    font-size: 35px;
+}
+/*------profile------*/
+.title{
+    justify-content: center;
+    padding: 12px;
+    text-align: center;
+}
+
+.pic{
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+}
+
+.pic-item{
+    max-width: 1140px;
+    justify-content: center;
+    text-align: center;
+}
+
+.pic-item img{
+    width: 300px;
+    border-radius: 100%;
+    box-shadow: 0 0 10px;
+    align-items: center;
+    animation-fill-mode: none;
+    transition: 0.5s;
+}
+
+.pic-item p{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+}
+.toph-pic{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    animation-fill-mode: none;
+}
+
+.toph-info img{
+    width: 300px;
+    border-radius: 100%;
+    box-shadow: 0 4px 8px 0 rgb(231, 201, 162),0 6px 20px 0 rgb(170, 15, 184);
+    align-items: center;
+    animation-fill-mode: none;
+    transition: 0.5s;
+}
+.toph-info img:HOVER{
+    transform: scale(1.05s);
+}
+.content{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    border: 3px rgb(231, 201, 162);
+    max-width: 1140px;
+    margin: 0 auto;
+    column-gap: 14px;
+    padding: 14px 14px;
+    align-items: center;
+}
+
+.content-item{
+    border: 2px rgb(231, 201, 162);
+    padding: 12px;
+    background-color: rgb(231, 201, 162);
+    color: blueviolet;
+    box-shadow: 0 4px 8px 0;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.content-item2{
+    border: 2px rgb(231, 201, 162);
+    padding: 12px;
+    background-color: rgb(114, 68, 7);
+    color: rgb(197, 160, 233);
+    box-shadow: 0 4px 8px 0;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.content-item3{
+    border: 2px rgb(231, 201, 162);
+    padding: 12px;
+    background-color: rgb(180, 109, 16);
+    color: rgb(122, 82, 167);
+    box-shadow: 0 4px 8px 0;
+    align-items: center;
+    transition: 0.5s;
+}
+.content-item:hover{
+    transform: scale(1.05);
+}
+.content-item2:hover{
+    transform: scale(1.05);
+}
+.content-item3:hover{
+    transform: scale(1.05);
+}
